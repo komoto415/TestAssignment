@@ -12,15 +12,15 @@ public class Move_Skeleton {
 
     public Move_Skeleton(Piece piece, GridPosition current, GridPosition end) {
         assert current != end;
-        assert isValidMove(piece, current, end);
+        assert piece.pathIsPossible(current, end);
 
         this.piece = piece;
         this.current = current;
         this.end = end;
     }
 
-    public boolean isValidMove(Piece piece, GridPosition current, GridPosition end) {
-        throw new RuntimeException("NOT IMPLEMENTED YET!!");
+    public GridPosition[] getPath() {
+        return piece.path(current, end);
     }
 
     /*
