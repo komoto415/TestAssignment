@@ -59,7 +59,6 @@ public abstract class Piece {
 
     /*
         Precondition(s):
-                                    piece   !=  null
                                   current   !=  null
 
         Postcondition(s):
@@ -68,9 +67,47 @@ public abstract class Piece {
             rv.forEach(i -> i.forEach(k))   =>  k == 0 || k == 1
                              rv[y][x] = 1   =>  y != currentTranslatedToYCoordinate &&
                                                 x != currentTranslatedToXCoordinate
+
+        Example Call:
+                 piece == Rook-> path(A1)   =>  rv == [
+                                                        [1,0,0,0,0,0,0,0,],
+                                                        [1,0,0,0,0,0,0,0,],
+                                                        [1,0,0,0,0,0,0,0,],
+                                                        [1,0,0,0,0,0,0,0,],
+                                                        [1,0,0,0,0,0,0,0,],
+                                                        [1,0,0,0,0,0,0,0,],
+                                                        [1,0,0,0,0,0,0,0,],
+                                                        [0,1,1,1,1,1,1,1,],
+                                                      ]
+                 piece == Rook -> path(A1)   =>  rv == [
+                                                        [0,0,0,0,0,0,0,1,],
+                                                        [0,0,0,0,0,0,1,0,],
+                                                        [0,0,0,0,0,1,0,0,],
+                                                        [0,0,0,0,1,0,0,0,],
+                                                        [0,0,0,1,0,0,0,0,],
+                                                        [0,0,1,0,0,0,0,0,],
+                                                        [0,1,0,0,0,0,0,0,],
+                                                        [0,0,0,0,0,0,0,0,],
+                                                      ]
     */
     public abstract int[][] getEndpointListFromCurrentPosition(GridPosition current);
 
+    /*
+        Precondition(s):
+                                      end   !=  null
+                                  current   !=  null
+                            this.piece.pathIsPossible(current, end)
+
+        Postcondition(s):
+                                rv.length   <   8
+                                    rv[i]   => i_th step from current to end ORDER MATTERS
+
+        Example Call:
+             piece == Rook-> path(A1, A3)   =>  rv == [A2]
+             piece == Rook-> path(A1, A4)   =>  rv == [A2, A3]
+             piece == Rook-> path(A1, D1)   =>  rv == [B1, C1, D1]
+             piece == Rook-> path(A1, C3)   =>  nuclear broccoli
+    */
     public abstract GridPosition[] path(GridPosition current, GridPosition end);
 
     public abstract boolean pathIsPossible(GridPosition current, GridPosition end);
