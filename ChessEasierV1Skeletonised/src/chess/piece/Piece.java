@@ -54,6 +54,7 @@ public abstract class Piece {
                                piece == QUEEN   =>  0 <  rv.size <= 27(?) not 100% sure...
                                 piece == KING   =>  0 <  rv.size <= 8
     */
+    // TODO: WIP, DO NOT TRY AND IMPLEMENT THIS METHOD YET
     public abstract Move_Skeleton[] getMoveListFromCurrentPosition(GridPosition current);
 
     /*
