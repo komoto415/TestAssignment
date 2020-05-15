@@ -3,6 +3,7 @@ package test.piece;
 import chess.GridPosition;
 import chess.piece.Piece;
 import org.junit.Test;
+import test.Points;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -13,9 +14,14 @@ import static org.junit.Assert.assertArrayEquals;
  @author Jeffrey Ng
  @created 2020-05-13 */
 public class PieceTest_5_Queen extends PieceTest_4_Bishop {
+
+    // 9 tests => 45 points
+
+    @Points(value = 5)
     @Test
     public void queenA8() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
+        TEST_GOAL_MESSAGE = "";
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition gp = extractGridPositionFromTestName(testName);
         Piece p = getPieceFromTestName(testName);
@@ -35,9 +41,11 @@ public class PieceTest_5_Queen extends PieceTest_4_Bishop {
         assertArrayEquals(expected, actual);
     }
 
+    @Points(value = 5)
     @Test
     public void queenA5() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
+        TEST_GOAL_MESSAGE = "";
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition gp = extractGridPositionFromTestName(testName);
         Piece p = getPieceFromTestName(testName);
@@ -57,9 +65,11 @@ public class PieceTest_5_Queen extends PieceTest_4_Bishop {
         assertArrayEquals(expected, actual);
     }
 
+    @Points(value = 5)
     @Test
     public void queenC3() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
+        TEST_GOAL_MESSAGE = "";
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition gp = extractGridPositionFromTestName(testName);
         Piece p = getPieceFromTestName(testName);
@@ -79,9 +89,11 @@ public class PieceTest_5_Queen extends PieceTest_4_Bishop {
         assertArrayEquals(expected, actual);
     }
 
+    @Points(value = 5)
     @Test
     public void queenA1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
+        TEST_GOAL_MESSAGE = "";
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition gp = extractGridPositionFromTestName(testName);
         Piece p = getPieceFromTestName(testName);
@@ -101,9 +113,11 @@ public class PieceTest_5_Queen extends PieceTest_4_Bishop {
         assertArrayEquals(expected, actual);
     }
 
+    @Points(value = 5)
     @Test
     public void queenA1B2() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
+        TEST_GOAL_MESSAGE = "";
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);
@@ -115,59 +129,62 @@ public class PieceTest_5_Queen extends PieceTest_4_Bishop {
         assertArrayEquals(expected, actual);
     }
 
+    @Points(value = 5)
     @Test
     public void queenA1H8() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
+        TEST_GOAL_MESSAGE = "";
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);
         Piece p = getPieceFromTestName_(testName);
 
         GridPosition[] actual = p.path(curGP, endGP);
-        GridPosition[] expected = new GridPosition[] {B2, C3, D4, E5, F6, G7, H8};
+        GridPosition[] expected = new GridPosition[] {B2, C3, D4, E5, F6, G7, H8,};
 
         assertArrayEquals(expected, actual);
     }
 
-    @Test
-    public void queenA1A2() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
-            InstantiationException, IllegalAccessException {
-        String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        GridPosition endGP = extractGridPositionFromTestName(testName);
-        GridPosition curGP = extractGridPositionFromTestName_(testName);
-        Piece p = getPieceFromTestName_(testName);
-
-        GridPosition[] actual = p.path(curGP, endGP);
-        GridPosition[] expected = new GridPosition[] {A2};
-
-        assertArrayEquals(expected, actual);
-    }
-
+    @Points(value = 5)
     @Test
     public void queenA1B1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
+        TEST_GOAL_MESSAGE = "";
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);
         Piece p = getPieceFromTestName_(testName);
 
         GridPosition[] actual = p.path(curGP, endGP);
-        GridPosition[] expected = new GridPosition[] {B1};
+        GridPosition[] expected = new GridPosition[] {B1,};
 
         assertArrayEquals(expected, actual);
     }
 
-    @Test
-    public void queenA1H1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+    @Points(value = 5)
+    @Test(expected = AssertionError.class)
+    public void queenA1B3() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
+        TEST_GOAL_MESSAGE = "";
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);
         Piece p = getPieceFromTestName_(testName);
 
         GridPosition[] actual = p.path(curGP, endGP);
-        GridPosition[] expected = new GridPosition[] {B1, C1, D1, E1, F1, G1, H1,};
-
-        assertArrayEquals(expected, actual);
     }
+
+    @Points(value = 5)
+    @Test(expected = AssertionError.class)
+    public void queenA1A1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+            InstantiationException, IllegalAccessException {
+        TEST_GOAL_MESSAGE = "";
+        String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        GridPosition endGP = extractGridPositionFromTestName(testName);
+        GridPosition curGP = extractGridPositionFromTestName_(testName);
+        Piece p = getPieceFromTestName_(testName);
+
+        GridPosition[] actual = p.path(curGP, endGP);
+    }
+
 }

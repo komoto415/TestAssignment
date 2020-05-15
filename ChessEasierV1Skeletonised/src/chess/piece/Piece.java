@@ -42,8 +42,8 @@ public abstract class Piece {
        Precondition(s):
                                     piece   !=  null
                                   current   !=  null
-
-       Postcondition(s):
+    */
+    /*  Postcondition(s):
                                 piece == PAWN   =>  2 <= rv.size <= 8 or
                                                     0 <= rv.size <= 4   depending if I want to diff between
                                                                         player colours. Other method does for
@@ -57,18 +57,17 @@ public abstract class Piece {
     // TODO: WIP, DO NOT TRY AND IMPLEMENT THIS METHOD YET
     public abstract Move_Skeleton[] getMoveListFromCurrentPosition(GridPosition current);
 
-    /*
-        Precondition(s):
+    /*  Precondition(s):
                                   current   !=  null
-
-        Postcondition(s):
+    */
+    /*  Postcondition(s):
                                 rv.length   ==  8
                             rv.forEach(i)   =>  i.length == 8
             rv.forEach(i -> i.forEach(k))   =>  k == 0 || k == 1
                              rv[y][x] = 1   =>  y != currentTranslatedToYCoordinate &&
                                                 x != currentTranslatedToXCoordinate
-
-        Example Call:
+    */
+    /*  Example Call:
                  piece == Rook-> path(A1)   =>  rv == [
                                                         [1,0,0,0,0,0,0,0,],
                                                         [1,0,0,0,0,0,0,0,],
@@ -92,17 +91,16 @@ public abstract class Piece {
     */
     public abstract int[][] getEndpointListFromCurrentPosition(GridPosition current);
 
-    /*
-        Precondition(s):
+    /*  Precondition(s):
                                       end   !=  null
                                   current   !=  null
                             this.piece.pathIsPossible(current, end)
-
-        Postcondition(s):
+    */
+    /*  Postcondition(s):
                                 rv.length   <   8
                                     rv[i]   => i_th step from current to end ORDER MATTERS
-
-        Example Call:
+    */
+    /*  Example Call:
              piece == Rook-> path(A1, A3)   =>  rv == [A2]
              piece == Rook-> path(A1, A4)   =>  rv == [A2, A3]
              piece == Rook-> path(A1, D1)   =>  rv == [B1, C1, D1]

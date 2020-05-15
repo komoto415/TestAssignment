@@ -19,15 +19,21 @@ public class Move_Skeleton {
         this.end = end;
     }
 
+    /*  Precondition(s):
+                None
+     */
+    /*  Postcondition(s):
+                A
+
+     */
     public GridPosition[] getPath() {
         return piece.path(current, end);
     }
 
-    /*
-        Precondition(s):
+    /*  Precondition(s):
                 None
-
-        Postcondition(s):
+    */
+    /*   Postcondition(s):
             rv.forEach(i -> i.forEach(k))   =>  i[0] == signedDeltaY && i[1] == signedDeltaX
                                             =>  -14 <= sum(i, k) <= 14
                                             =>  -7 <= (i && k) <= 7
