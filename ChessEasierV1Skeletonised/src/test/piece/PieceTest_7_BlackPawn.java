@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+import static chess.GridPosition.*;
 import static org.junit.Assert.assertArrayEquals;
 
 /**
@@ -93,6 +94,62 @@ public class PieceTest_7_BlackPawn extends PieceTest_6_WhitePawn {
                 new int[] {0, 0, 0, 0, 0, 0, 0, 0,},
                 new int[] {0, 0, 0, 0, 0, 0, 0, 0,},
                 };
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void blackPawnB7A6() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+            InstantiationException, IllegalAccessException {
+        String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        GridPosition endGP = extractGridPositionFromTestName(testName);
+        GridPosition curGP = extractGridPositionFromTestName_(testName);
+        Piece p = getPieceFromTestName_(testName);
+
+        GridPosition[] actual = p.path(curGP, endGP);
+        GridPosition[] expected = new GridPosition[] {A2,};
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void blackPawnB7B6() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+            InstantiationException, IllegalAccessException {
+        String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        GridPosition endGP = extractGridPositionFromTestName(testName);
+        GridPosition curGP = extractGridPositionFromTestName_(testName);
+        Piece p = getPieceFromTestName_(testName);
+
+        GridPosition[] actual = p.path(curGP, endGP);
+        GridPosition[] expected = new GridPosition[] {B2,};
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void blackPawnB7B5() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+            InstantiationException, IllegalAccessException {
+        String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        GridPosition endGP = extractGridPositionFromTestName(testName);
+        GridPosition curGP = extractGridPositionFromTestName_(testName);
+        Piece p = getPieceFromTestName_(testName);
+
+        GridPosition[] actual = p.path(curGP, endGP);
+        GridPosition[] expected = new GridPosition[] {B2, B3};
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void blackPawnB7C6() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+            InstantiationException, IllegalAccessException {
+        String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        GridPosition endGP = extractGridPositionFromTestName(testName);
+        GridPosition curGP = extractGridPositionFromTestName_(testName);
+        Piece p = getPieceFromTestName_(testName);
+
+        GridPosition[] actual = p.path(curGP, endGP);
+        GridPosition[] expected = new GridPosition[] {C2,};
 
         assertArrayEquals(expected, actual);
     }
