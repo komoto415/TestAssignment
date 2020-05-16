@@ -1,11 +1,10 @@
 package chess;
 
 import chess.piece.*;
-import chess.utils.*;
+import chess.utils.ChessGameUtils_Ng;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  @author Jeffrey Ng

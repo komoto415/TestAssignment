@@ -173,8 +173,6 @@ public class PieceTest_7_BlackPawn extends PieceTest_6_WhitePawn {
         GridPosition[] actual = p.path(curGP, endGP);
     }
 
-
-
     @Points(value = 5)
     @Test(expected = AssertionError.class)
     public void blackPawnB7B8() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,

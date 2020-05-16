@@ -1,10 +1,7 @@
 package chess;
 
 import chess.piece.Piece;
-import chess.utils.*;
-
-import java.util.HashMap;
-import java.util.Map;
+import chess.utils.ChessGameUtils_Ng;
 
 /**
  @author Jeffrey Ng
@@ -13,7 +10,7 @@ public class Move {
     private final Piece piece;
     private final GridPosition current;
     private final GridPosition end;
-    
+
     public Move(Piece piece, GridPosition current, GridPosition end) {
         assert current != end;
 

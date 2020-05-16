@@ -1,13 +1,11 @@
 package test;
 
 import org.junit.Test;
-
-import static pacman.Direction.*;
-
 import pacman.PacManNavigator;
 import pacman.PacManNavigatorImpl_Skeleton;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static pacman.Direction.*;
 
 /**
  @author Jeffrey Ng

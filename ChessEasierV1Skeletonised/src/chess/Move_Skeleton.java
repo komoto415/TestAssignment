@@ -20,10 +20,10 @@ public class Move_Skeleton {
     }
 
     /*  Precondition(s):
-                None
+                                            None
      */
     /*  Postcondition(s):
-                A
+                                            A
 
      */
     public GridPosition[] getPath() {
@@ -31,7 +31,7 @@ public class Move_Skeleton {
     }
 
     /*  Precondition(s):
-                None
+                                            None
     */
     /*   Postcondition(s):
             rv.forEach(i -> i.forEach(k))   =>  i[0] == signedDeltaY && i[1] == signedDeltaX

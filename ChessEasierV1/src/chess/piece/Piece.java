@@ -78,7 +78,7 @@ public abstract class Piece {
                                                         [1,0,0,0,0,0,0,0,],
                                                         [0,1,1,1,1,1,1,1,],
                                                       ]
-                 piece == Rook -> path(A1)   =>  rv == [
+                piece == Rook -> path(A1)   =>  rv == [
                                                         [0,0,0,0,0,0,0,1,],
                                                         [0,0,0,0,0,0,1,0,],
                                                         [0,0,0,0,0,1,0,0,],
@@ -98,13 +98,13 @@ public abstract class Piece {
     */
     /*  Postcondition(s):
                                 rv.length   <   8
-                                    rv[i]   => i_th step from current to end ORDER MATTERS
+                                    rv[i]   =>  i_th step from current to end ORDER MATTERS
     */
     /*  Example Call:
-             piece == Rook-> path(A1, A3)   =>  rv == [A2]
-             piece == Rook-> path(A1, A4)   =>  rv == [A2, A3]
-             piece == Rook-> path(A1, D1)   =>  rv == [B1, C1, D1]
-             piece == Rook-> path(A1, C3)   =>  nuclear broccoli
+            piece == Rook -> path(A1, A3)   =>  rv == [A2]
+            piece == Rook -> path(A1, A4)   =>  rv == [A2, A3]
+            piece == Rook -> path(A1, D1)   =>  rv == [B1, C1, D1]
+            piece == Rook -> path(A1, C3)   =>  nuclear broccoli
     */
     public abstract GridPosition[] path(GridPosition current, GridPosition end);
 

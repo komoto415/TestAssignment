@@ -5,10 +5,10 @@ import chess.Label;
 import chess.Move_Skeleton;
 import chess.Player;
 
-import static chess.Label.*;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import static chess.Label.*;
 
 /**
  @author Jeffrey Ng

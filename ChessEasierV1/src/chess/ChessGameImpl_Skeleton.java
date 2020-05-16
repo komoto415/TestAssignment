@@ -65,11 +65,6 @@ public class ChessGameImpl_Skeleton implements ChessGame {
     }
 
     @Override
-    public List<Move> getMoveHistory() {
-        return null;
-    }
-
-    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         int rowNo = 8;

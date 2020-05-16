@@ -1,13 +1,17 @@
 package test.chess;
 
-import chess.*;
+import chess.ChessGame;
+import chess.ChessGameImpl_Ng;
+import chess.GridPosition;
+import chess.Player;
 import chess.piece.*;
 import org.junit.Test;
 import test.Points;
 
-import static utils.PythonMethods.*;
 import static chess.GridPosition.*;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static utils.PythonMethods.print;
 
 /**
  @author Jeffrey Ng

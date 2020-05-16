@@ -1,7 +1,6 @@
 package chess.piece;
 
 import chess.*;
-import chess.piece.utils.PieceUtils_Ng;
 import chess.utils.ChessGameUtils_Ng;
 
 /**

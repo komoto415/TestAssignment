@@ -160,5 +160,4 @@ public class PieceTest_4_Bishop extends PieceTest_3_Knight {
         assertArrayEquals(expected, actual);
     }
 
-
 }

@@ -1,7 +1,5 @@
 package chess.piece.utils;
 
-import chess.ChessGame;
-
 /**
  @author Jeffrey Ng
  @created 2020-05-13 */

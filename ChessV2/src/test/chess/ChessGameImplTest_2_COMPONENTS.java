@@ -1,15 +1,16 @@
 package test.chess;
 
+import chess.ChessGame;
+import chess.ChessGameImpl_Skeleton;
 import chess.GridPosition;
 import chess.Player;
 import chess.piece.*;
-import chess.ChessGame;
-import chess.ChessGameImpl_Skeleton;
 import org.junit.Test;
 import test.Points;
 
 import static chess.GridPosition.*;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 /**
  @author Jeffrey Ng

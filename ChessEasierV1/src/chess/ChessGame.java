@@ -2,8 +2,6 @@ package chess;
 
 import chess.piece.Piece;
 
-import java.util.List;
-
 /**
  @author Jeffrey Ng
  @created 2020-05-12 */
@@ -58,35 +56,35 @@ public interface ChessGame {
                                  position   !=  null
     */
     /*  Postcondition(s):
-            A
+                                            A
     */
     public Piece getPiece(GridPosition position);
 
     /*  Precondition(s):
-                                    piece   !=  null
+                                    start   !=  null
                                       end   !=  null
+                          getPiece(start)   !=  null
+                                isValidMove(start, end)
     */
     /*  Postcondition(s):
-            A
+                                            A
     */
     public void movePiece(GridPosition start, GridPosition end);
 
     /*  Precondition(s):
-            None
+                                            None
     */
     /*  Postcondition(s):
-            A
+                                            A
     */
     public boolean isValidMove(GridPosition start, GridPosition end);
 
     /*
         Precondition(s):
-            None
+                                            None
     */
     /*  Postcondition(s):
-            A
+                                            A
     */
     public boolean isCheckmated();
-
-    public List<Move_Skeleton> getMoveHistory();
 }

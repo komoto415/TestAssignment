@@ -1,12 +1,13 @@
 package chess.utils;
 
-import static chess.Player.*;
-
 import chess.GridPosition;
 import chess.piece.*;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static chess.Player.BLACK;
+import static chess.Player.WHITE;
 
 /**
  @author Jeffrey Ng

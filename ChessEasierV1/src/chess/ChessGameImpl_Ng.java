@@ -89,11 +89,6 @@ public class ChessGameImpl_Ng implements ChessGame {
     }
 
     @Override
-    public List<Move> getMoveHistory() {
-        return moveHistory;
-    }
-
-    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         int rowNo = 8;
