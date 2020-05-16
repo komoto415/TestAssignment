@@ -78,7 +78,7 @@ public class Rook extends Piece {
             } else if (left) {
                 col -= i;
             } else if (right) {
-                col += 1;
+                col += i;
             }
             print(row, col);
             GridPosition gp = ChessGameUtils_Ng.convertYXToGridPosition(row, col);
