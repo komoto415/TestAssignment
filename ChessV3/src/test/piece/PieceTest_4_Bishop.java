@@ -128,7 +128,7 @@ public class PieceTest_4_Bishop extends PieceTest_3_Knight {
 
     @Points(value = 5)
     @Test
-    public void bishopA8E4() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+    public void bishopE4H1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
         TEST_GOAL_MESSAGE = "4 steps from NW to SE by a Bishop";
 
@@ -138,7 +138,7 @@ public class PieceTest_4_Bishop extends PieceTest_3_Knight {
         Piece p = getPieceFromTestName_(testName);
 
         GridPosition[] actual = p.path(curGP, endGP);
-        GridPosition[] expected = new GridPosition[] {B7, C6, D5, E4,};
+        GridPosition[] expected = new GridPosition[] {F3, G2, H1,};
 
         assertArrayEquals(expected, actual);
     }

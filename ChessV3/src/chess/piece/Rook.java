@@ -4,6 +4,8 @@ import chess.*;
 import chess.piece.utils.PieceUtils_Ng;
 import chess.utils.ChessGameUtils_Ng;
 
+import static utils.PythonMethods.print;
+
 /**
  @author Jeffrey Ng
  @created 2020-05-12 */
@@ -67,8 +69,8 @@ public class Rook extends Piece {
         GridPosition[] path = new GridPosition[diff];
         int pathIndex = 0;
 
-        int row = curY, col = curX;
         for (int i = 1; i <= diff; i++) {
+            int row = curY, col = curX;
             if (up) {
                 row -= i;
             } else if (down) {
@@ -78,6 +80,7 @@ public class Rook extends Piece {
             } else if (right) {
                 col += 1;
             }
+            print(row, col);
             GridPosition gp = ChessGameUtils_Ng.convertYXToGridPosition(row, col);
             path[pathIndex] = gp;
             pathIndex += 1;

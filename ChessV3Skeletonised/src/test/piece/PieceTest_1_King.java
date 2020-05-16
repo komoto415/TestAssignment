@@ -9,7 +9,7 @@ import test.Points;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-import static chess.GridPosition.A2;
+import static chess.GridPosition.A1;
 import static chess.GridPosition.B1;
 import static org.junit.Assert.assertArrayEquals;
 
@@ -128,7 +128,7 @@ public class PieceTest_1_King extends PieceTest_0_Environment {
 
     @Points(value = 5)
     @Test
-    public void kingA3A2() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+    public void kingA2A1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
         TEST_GOAL_MESSAGE = "1 step down the file by a King";
 
@@ -138,7 +138,7 @@ public class PieceTest_1_King extends PieceTest_0_Environment {
         Piece p = getPieceFromTestName_(testName);
 
         GridPosition[] actual = p.path(curGP, endGP);
-        GridPosition[] expected = new GridPosition[] {A2,};
+        GridPosition[] expected = new GridPosition[] {A1,};
 
         assertArrayEquals(expected, actual);
     }
