@@ -138,13 +138,13 @@ public class PieceTest_4_Bishop extends PieceTest_3_Knight {
         Piece p = getPieceFromTestName_(testName);
 
         GridPosition[] actual = p.path(curGP, endGP);
-        GridPosition[] expected = new GridPosition[] {B7, C6, D5, C4,};
+        GridPosition[] expected = new GridPosition[] {B7, C6, D5, E4,};
 
         assertArrayEquals(expected, actual);
     }
 
     @Points(value = 5)
-    @Test
+    @Test(expected = AssertionError.class)
     public void bishopA8A4() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
         TEST_GOAL_MESSAGE = "Illegal direct vertical step attempted to be made by a Bishop";
@@ -155,9 +155,6 @@ public class PieceTest_4_Bishop extends PieceTest_3_Knight {
         Piece p = getPieceFromTestName_(testName);
 
         GridPosition[] actual = p.path(curGP, endGP);
-        GridPosition[] expected = new GridPosition[] {B7, C6, D5, C4,};
-
-        assertArrayEquals(expected, actual);
     }
 
 }

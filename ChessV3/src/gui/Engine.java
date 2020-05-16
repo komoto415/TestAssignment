@@ -1,6 +1,7 @@
 package gui;
 
 import chess.ChessGame;
+import chess.ChessGameImpl_Ng;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -16,7 +17,7 @@ public class Engine {
     private String actionText;
 
     public Engine() {
-        game = new ChessGameImpl_Skeleton();
+        game = new ChessGameImpl_Ng();
         eventListenerList = new EventListenerList();
         actionText = "Game has started";
     }
