@@ -19,7 +19,6 @@ import static org.junit.Assert.assertArrayEquals;
 public class PieceTest_1_King extends PieceTest_0_Environment {
     protected Piece getPieceFromTestName(String testName) throws ClassNotFoundException, NoSuchMethodException,
             IllegalAccessException, InvocationTargetException, InstantiationException {
-        TEST_GOAL_MESSAGE = "";
         String classNameAux = testName.substring(0, testName.length() - 2);
         char title = classNameAux.toUpperCase().charAt(0);
         String restOfTheClassName = classNameAux.substring(1);
@@ -32,7 +31,6 @@ public class PieceTest_1_King extends PieceTest_0_Environment {
 
     protected Piece getPieceFromTestName_(String testName) throws ClassNotFoundException, NoSuchMethodException,
             IllegalAccessException, InvocationTargetException, InstantiationException {
-        TEST_GOAL_MESSAGE = "";
         String classNameAux = testName.substring(0, testName.length() - 4);
         char title = classNameAux.toUpperCase().charAt(0);
         String restOfTheClassName = classNameAux.substring(1);
@@ -51,13 +49,13 @@ public class PieceTest_1_King extends PieceTest_0_Environment {
         return GridPosition.translate(testName.substring(testName.length() - 4, testName.length() - 2));
     }
 
-    // 8 tests => 40 points
+    // 6 tests => 30 points
 
     @Points(value = 5)
     @Test
     public void kingA8() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "Checking if lower bound out of range indexing is handled with a valid return value";
 
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition gp = extractGridPositionFromTestName(testName);
@@ -80,9 +78,35 @@ public class PieceTest_1_King extends PieceTest_0_Environment {
 
     @Points(value = 5)
     @Test
+    public void kingA1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+            InstantiationException, IllegalAccessException {
+        TEST_GOAL_MESSAGE = "Checking if upper bound out of range indexing is handled with a valid return value";
+
+        String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        GridPosition gp = extractGridPositionFromTestName(testName);
+        Piece p = getPieceFromTestName(testName);
+
+        int[][] actual = p.getEndpointListFromCurrentPosition(gp);
+        int[][] expected = new int[][] {
+                new int[] {0, 0, 0, 0, 0, 0, 0, 0,},
+                new int[] {0, 0, 0, 0, 0, 0, 0, 0,},
+                new int[] {0, 0, 0, 0, 0, 0, 0, 0,},
+                new int[] {0, 0, 0, 0, 0, 0, 0, 0,},
+                new int[] {0, 0, 0, 0, 0, 0, 0, 0,},
+                new int[] {0, 0, 0, 0, 0, 0, 0, 0,},
+                new int[] {1, 1, 0, 0, 0, 0, 0, 0,},
+                new int[] {0, 1, 0, 0, 0, 0, 0, 0,},
+                };
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Points(value = 5)
+    @Test
     public void kingC3() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "Simple return value where there is no immediate surrounding obstruction";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition gp = extractGridPositionFromTestName(testName);
         Piece p = getPieceFromTestName(testName);
@@ -104,33 +128,10 @@ public class PieceTest_1_King extends PieceTest_0_Environment {
 
     @Points(value = 5)
     @Test
-    public void kingA1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+    public void kingA3A2() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
-        String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        GridPosition gp = extractGridPositionFromTestName(testName);
-        Piece p = getPieceFromTestName(testName);
+        TEST_GOAL_MESSAGE = "1 step down the file by a King";
 
-        int[][] actual = p.getEndpointListFromCurrentPosition(gp);
-        int[][] expected = new int[][] {
-                new int[] {0, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {0, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {0, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {0, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {0, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {0, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {1, 1, 0, 0, 0, 0, 0, 0,},
-                new int[] {0, 1, 0, 0, 0, 0, 0, 0,},
-                };
-
-        assertArrayEquals(expected, actual);
-    }
-
-    @Points(value = 5)
-    @Test
-    public void kingA1A2() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
-            InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);
@@ -146,7 +147,8 @@ public class PieceTest_1_King extends PieceTest_0_Environment {
     @Test
     public void kingA1B1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "1 step right along the row by a King";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);
@@ -162,33 +164,8 @@ public class PieceTest_1_King extends PieceTest_0_Environment {
     @Test(expected = AssertionError.class)
     public void kingA1A3() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
-        String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        GridPosition endGP = extractGridPositionFromTestName(testName);
-        GridPosition curGP = extractGridPositionFromTestName_(testName);
-        Piece p = getPieceFromTestName_(testName);
+        TEST_GOAL_MESSAGE = "Illegal 2 steps attempted to be made by a King";
 
-        GridPosition[] actual = p.path(curGP, endGP);
-    }
-
-    @Points(value = 5)
-    @Test(expected = AssertionError.class)
-    public void kingA1C1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
-            InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
-        String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        GridPosition endGP = extractGridPositionFromTestName(testName);
-        GridPosition curGP = extractGridPositionFromTestName_(testName);
-        Piece p = getPieceFromTestName_(testName);
-
-        GridPosition[] actual = p.path(curGP, endGP);
-    }
-
-    @Points(value = 5)
-    @Test(expected = AssertionError.class)
-    public void kingA1A1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
-            InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);

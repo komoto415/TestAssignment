@@ -15,13 +15,14 @@ import static org.junit.Assert.assertArrayEquals;
  @created 2020-05-13 */
 public class PieceTest_2_Rook extends PieceTest_1_King {
 
-    // 9 tests => 45 points
+    // 6 tests => 30 points
 
     @Points(value = 5)
     @Test
     public void rookA8() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "Checking if lower bound out of range indexing is handled with a valid return value";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition gp = extractGridPositionFromTestName(testName);
         Piece p = getPieceFromTestName(testName);
@@ -43,9 +44,10 @@ public class PieceTest_2_Rook extends PieceTest_1_King {
 
     @Points(value = 5)
     @Test
-    public void rookA5() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+    public void rookA1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "Checking if upper bound out of range indexing is handled with a valid return value";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition gp = extractGridPositionFromTestName(testName);
         Piece p = getPieceFromTestName(testName);
@@ -55,11 +57,11 @@ public class PieceTest_2_Rook extends PieceTest_1_King {
                 new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
                 new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
                 new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
+                new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
+                new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
+                new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
+                new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
                 new int[] {0, 1, 1, 1, 1, 1, 1, 1,},
-                new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
                 };
 
         assertArrayEquals(expected, actual);
@@ -69,7 +71,8 @@ public class PieceTest_2_Rook extends PieceTest_1_King {
     @Test
     public void rookC3() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "Simple return value where there is no immediate surrounding obstruction";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition gp = extractGridPositionFromTestName(testName);
         Piece p = getPieceFromTestName(testName);
@@ -91,56 +94,17 @@ public class PieceTest_2_Rook extends PieceTest_1_King {
 
     @Points(value = 5)
     @Test
-    public void rookA1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+    public void rookA3A1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
-        String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        GridPosition gp = extractGridPositionFromTestName(testName);
-        Piece p = getPieceFromTestName(testName);
+        TEST_GOAL_MESSAGE = "2 steps down the file by a Rook";
 
-        int[][] actual = p.getEndpointListFromCurrentPosition(gp);
-        int[][] expected = new int[][] {
-                new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {1, 0, 0, 0, 0, 0, 0, 0,},
-                new int[] {0, 1, 1, 1, 1, 1, 1, 1,},
-                };
-
-        assertArrayEquals(expected, actual);
-    }
-
-    @Points(value = 5)
-    @Test
-    public void rookA1A2() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
-            InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);
         Piece p = getPieceFromTestName_(testName);
 
         GridPosition[] actual = p.path(curGP, endGP);
-        GridPosition[] expected = new GridPosition[] {A2,};
-
-        assertArrayEquals(expected, actual);
-    }
-
-    @Points(value = 5)
-    @Test
-    public void rookA1B1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
-            InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
-        String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        GridPosition endGP = extractGridPositionFromTestName(testName);
-        GridPosition curGP = extractGridPositionFromTestName_(testName);
-        Piece p = getPieceFromTestName_(testName);
-
-        GridPosition[] actual = p.path(curGP, endGP);
-        GridPosition[] expected = new GridPosition[] {B1,};
+        GridPosition[] expected = new GridPosition[] {A2, A1};
 
         assertArrayEquals(expected, actual);
     }
@@ -149,7 +113,8 @@ public class PieceTest_2_Rook extends PieceTest_1_King {
     @Test
     public void rookA1H1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "Edge-edge right along the row by a Rook";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);
@@ -165,7 +130,8 @@ public class PieceTest_2_Rook extends PieceTest_1_King {
     @Test(expected = AssertionError.class)
     public void rookA1B2() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "Illegal diagonal step attempted to be made by a Rook";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);
@@ -173,18 +139,4 @@ public class PieceTest_2_Rook extends PieceTest_1_King {
 
         GridPosition[] actual = p.path(curGP, endGP);
     }
-
-    @Points(value = 5)
-    @Test(expected = AssertionError.class)
-    public void rookA1A1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
-            InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
-        String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        GridPosition endGP = extractGridPositionFromTestName(testName);
-        GridPosition curGP = extractGridPositionFromTestName_(testName);
-        Piece p = getPieceFromTestName_(testName);
-
-        GridPosition[] actual = p.path(curGP, endGP);
-    }
-
 }

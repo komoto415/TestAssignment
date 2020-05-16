@@ -9,7 +9,7 @@ import test.Points;
 public class PieceTest_0_Environment {
     protected String TEST_GOAL_MESSAGE;
 
-    // Total current 40, 45, 40, 40, 45, 45, 45 = 300
+    // Total current 30, 30, 30, 35, 35, 45, 45 = 250
 
     @Points(value = 0)
     @Test(expected = AssertionError.class)

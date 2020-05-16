@@ -21,7 +21,8 @@ public class PieceTest_6_WhitePawn extends PieceTest_5_Queen {
     @Test
     public void pawnA2() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "Pawn moving off the pawn line";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition gp = extractGridPositionFromTestName(testName);
         Piece p = getPieceFromTestName(testName);
@@ -45,7 +46,8 @@ public class PieceTest_6_WhitePawn extends PieceTest_5_Queen {
     @Test
     public void pawnA4() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "Where only one step max is possible for a pawn";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition gp = extractGridPositionFromTestName(testName);
         Piece p = getPieceFromTestName(testName);
@@ -69,7 +71,8 @@ public class PieceTest_6_WhitePawn extends PieceTest_5_Queen {
     @Test
     public void pawnC8() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "Pawn on the opposing player's royal line should have no possible moves";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition gp = extractGridPositionFromTestName(testName);
         Piece p = getPieceFromTestName(testName);
@@ -93,7 +96,8 @@ public class PieceTest_6_WhitePawn extends PieceTest_5_Queen {
     @Test
     public void pawnB2B3() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "1 step up the file by a White Pawn";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);
@@ -109,7 +113,8 @@ public class PieceTest_6_WhitePawn extends PieceTest_5_Queen {
     @Test
     public void pawnB2B4() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "2 steps up the file by a White Pawn";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);
@@ -125,7 +130,8 @@ public class PieceTest_6_WhitePawn extends PieceTest_5_Queen {
     @Test
     public void pawnB2C3() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "1 step diagonally from SW to NE for a capture by a White Pawn";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);
@@ -141,7 +147,8 @@ public class PieceTest_6_WhitePawn extends PieceTest_5_Queen {
     @Test(expected = AssertionError.class)
     public void pawnB2C2() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "Illegal horizontal step attempted to be made by a White Pawn";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);
@@ -154,7 +161,8 @@ public class PieceTest_6_WhitePawn extends PieceTest_5_Queen {
     @Test(expected = AssertionError.class)
     public void pawnB2B1() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "Illegal 1 step down the file attempted to be made by a White Pawn";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);
@@ -167,7 +175,8 @@ public class PieceTest_6_WhitePawn extends PieceTest_5_Queen {
     @Test(expected = AssertionError.class)
     public void pawnB1B3() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
-        TEST_GOAL_MESSAGE = "";
+        TEST_GOAL_MESSAGE = "Illegal 2 steps up the file attempted to be made by a White Pawn";
+
         String testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         GridPosition endGP = extractGridPositionFromTestName(testName);
         GridPosition curGP = extractGridPositionFromTestName_(testName);
