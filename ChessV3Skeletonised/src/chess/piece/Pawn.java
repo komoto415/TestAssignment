@@ -28,7 +28,7 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public GridPosition[] path(GridPosition current, GridPosition end) {
+    public GridPosition[] getPath(GridPosition current, GridPosition end) {
         throw new RuntimeException("NOW IMPLEMENTED YET");
     }
 

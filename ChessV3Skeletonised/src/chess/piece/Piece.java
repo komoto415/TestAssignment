@@ -106,7 +106,7 @@ public abstract class Piece {
             piece == Rook -> path(A1, D1)   =>  rv == [B1, C1, D1]
             piece == Rook -> path(A1, C3)   =>  nuclear broccoli
     */
-    public abstract GridPosition[] path(GridPosition current, GridPosition end);
+    public abstract GridPosition[] getPath(GridPosition current, GridPosition end);
 
     public abstract boolean pathIsPossible(GridPosition current, GridPosition end);
 

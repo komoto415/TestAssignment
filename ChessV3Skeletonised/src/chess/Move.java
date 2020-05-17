@@ -27,7 +27,7 @@ public class Move {
 
      */
     public GridPosition[] getPath() {
-        return piece.path(current, end);
+        return piece.getPath(current, end);
     }
 
     public Piece getPiece() {
