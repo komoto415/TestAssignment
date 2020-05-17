@@ -1,16 +1,18 @@
 # Experimental Challenge
-**Objective**: Design a challenge such that it can be administered as a
+**Project Objective**: Design a challenge such that it can be administered as a
 Component-Based Programming  challenge and then reduxed in 
 Algorithms and Data Structures.  
-**Primary Goals**: 
-- Code Readability
-- Object Orientated Design
-- Multi-Class solutions
+
 ## Concepts  
 - Chess
 - Pac Man
 - Airport Connections
 - Clock
+
+**Challenge Primary Goals**: 
+- Code Readability
+- Object Orientated Design
+- Multi-Class solutions
 
 **Component-Based Programming** Effective-Restructuring:
 Final challenge will be the experimental challenge
@@ -20,7 +22,7 @@ Bowling will be replaced with experimental challenge reduxed.
 In addition, depending on the selected design, there maybe be a part three introduced where
 students will look at the AI behaviour application of their implementation.  
 i.e:  
-Chess -> Forward looking and game state evaluation
+Chess -> Forward looking and game state evaluation  
 Pac Man -> Pathfinders and point accumulation optimisation
 
 ### Chess
@@ -41,7 +43,6 @@ Piece Subclasses
     |-- Queen
     |-- Pawn
 
-Methods:
     public abstract int[][] getEndpointListFromCurrentPosition(GridPosition current);
     public abstract GridPosition[] getPath(GridPosition current, GridPosition end);
     public abstract boolean pathIsPossible(GridPosition current, GridPosition end);
@@ -50,7 +51,6 @@ Methods:
 Basic board interaction components and methods
 ```
 chess.ChessGameImpl_Skeleton;
-
 Methods:
     public Piece getPiece(GridPosition position);
     public void movePiece(GridPosition end);
@@ -63,7 +63,6 @@ The return of function overloading
 Board validation methods
 ```
 chess.ChessGameImpl_Skeleton;
-
 Methods: 
     public void movePiece(Piece piece, GridPosition end);
     public void movePiece(Piece piece, char file, GridPosition end);
