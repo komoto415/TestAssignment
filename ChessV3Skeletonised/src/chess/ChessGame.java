@@ -63,9 +63,19 @@ public interface ChessGame {
     public Piece getPiece(GridPosition position);
 
     /*  Precondition(s):
+                                      end   !=  null
+                              !isAmbiguousMove(piece, end);
+                                    isValidMove(end)
+    */
+    /*  Postcondition(s):
+                                            A
+    */
+    public void movePiece(GridPosition end);
+
+    /*  Precondition(s):
                                     piece   !=  null
                                       end   !=  null
-                              !isAmbiguousMove(piece, move);
+                              !isAmbiguousMove(piece, end);
                                 isValidMove(piece, end)
     */
     /*  Postcondition(s):
@@ -85,6 +95,14 @@ public interface ChessGame {
     public void movePiece(Piece piece, char file, GridPosition end);
 
     /*  Precondition(s):
+                                      end   !=  null
+    */
+    /*  Postcondition(s):
+                                            A
+    */
+    public boolean isAmbiguousMove(GridPosition end);
+
+    /*  Precondition(s):
                                     piece   !=  null
                                       end   !=  null
     */
@@ -92,6 +110,22 @@ public interface ChessGame {
                                             A
     */
     public boolean isAmbiguousMove(Piece piece, GridPosition end);
+
+    /*  Precondition(s):
+                                            None
+    */
+    /*  Postcondition(s):
+                                            A
+    */
+    public boolean canMove(GridPosition gp);
+
+    /*  Precondition(s):
+                                            None
+    */
+    /*  Postcondition(s):
+                                            A
+    */
+    public boolean isValidMove(GridPosition end);
 
     /*  Precondition(s):
                                             None

@@ -25,8 +25,8 @@ public class ChessGameImpl_Skeleton implements ChessGame {
     public ChessGameImpl_Skeleton() {
         board = new Piece[ROW_COUNT][COLUMN_COUNT];
         board[BLACK_ROYAL_FAMILY_INDEX] = new Piece[] {
-                new Rook(Player.BLACK), new Knight(Player.BLACK), new Bishop(Player.BLACK), new King(Player.BLACK),
-                new Queen(Player.BLACK), new Bishop(Player.BLACK), new Knight(Player.BLACK), new Rook(Player.BLACK),
+                new Rook(Player.BLACK), new Knight(Player.BLACK), new Bishop(Player.BLACK), new Queen(Player.BLACK),
+                new King(Player.BLACK), new Bishop(Player.BLACK), new Knight(Player.BLACK), new Rook(Player.BLACK),
                 };
         board[BLACK_PAWN_ROW_INDEX] = new Piece[] {
                 new Pawn(Player.BLACK), new Pawn(Player.BLACK), new Pawn(Player.BLACK), new Pawn(Player.BLACK),
@@ -37,8 +37,8 @@ public class ChessGameImpl_Skeleton implements ChessGame {
                 new Pawn(Player.WHITE), new Pawn(Player.WHITE), new Pawn(Player.WHITE), new Pawn(Player.WHITE),
                 };
         board[WHITE_ROYAL_FAMILY_INDEX] = new Piece[] {
-                new Rook(Player.WHITE), new Knight(Player.WHITE), new Bishop(Player.WHITE), new King(Player.WHITE),
-                new Queen(Player.WHITE), new Bishop(Player.WHITE), new Knight(Player.WHITE), new Rook(Player.WHITE),
+                new Rook(Player.WHITE), new Knight(Player.WHITE), new Bishop(Player.WHITE), new Queen(Player.WHITE),
+                new King(Player.WHITE), new Bishop(Player.WHITE), new Knight(Player.WHITE), new Rook(Player.WHITE),
                 };
 
         moveHistory = new ArrayList<>();
@@ -46,6 +46,11 @@ public class ChessGameImpl_Skeleton implements ChessGame {
 
     @Override
     public Piece getPiece(GridPosition position) {
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
+    }
+
+    @Override
+    public void movePiece(GridPosition end) {
         throw new RuntimeException("NOT IMPLEMENTED YET!!");
     }
 
@@ -60,7 +65,22 @@ public class ChessGameImpl_Skeleton implements ChessGame {
     }
 
     @Override
+    public boolean isAmbiguousMove(GridPosition end) {
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
+    }
+
+    @Override
     public boolean isAmbiguousMove(Piece piece, GridPosition end) {
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
+    }
+
+    @Override
+    public boolean canMove(GridPosition gp) {
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
+    }
+
+    @Override
+    public boolean isValidMove(GridPosition end) {
         throw new RuntimeException("NOT IMPLEMENTED YET!!");
     }
 
