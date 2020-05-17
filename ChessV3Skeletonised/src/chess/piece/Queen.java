@@ -18,23 +18,21 @@ public class Queen extends Piece {
 
     @Override
     public Move[] getMoveListFromCurrentPosition(GridPosition current) {
-        throw new RuntimeException("NOW IMPLEMENTED YET");
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
     }
 
     @Override
     public int[][] getEndpointListFromCurrentPosition(GridPosition current) {
-        throw new RuntimeException("NOW IMPLEMENTED YET");
-
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
     }
 
     @Override
     public GridPosition[] getPath(GridPosition current, GridPosition end) {
-        throw new RuntimeException("NOW IMPLEMENTED YET");
-
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
     }
 
     @Override
     public boolean pathIsPossible(GridPosition current, GridPosition end) {
-        throw new RuntimeException("NOW IMPLEMENTED YET");
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
     }
 }

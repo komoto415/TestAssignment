@@ -21,7 +21,7 @@ public class Pawn extends Piece {
 
     @Override
     public Move[] getMoveListFromCurrentPosition(GridPosition current) {
-        throw new RuntimeException("NOW IMPLEMENTED YET");
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
     }
 
     @Override
@@ -61,7 +61,7 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public GridPosition[] path(GridPosition current, GridPosition end) {
+    public GridPosition[] getPath(GridPosition current, GridPosition end) {
         return new GridPosition[0];
     }
 

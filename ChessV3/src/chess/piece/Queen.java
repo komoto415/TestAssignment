@@ -17,7 +17,7 @@ public class Queen extends Piece {
 
     @Override
     public Move[] getMoveListFromCurrentPosition(GridPosition current) {
-        throw new RuntimeException("NOW IMPLEMENTED YET");
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
     }
 
     @Override
@@ -44,7 +44,7 @@ public class Queen extends Piece {
     }
 
     @Override
-    public GridPosition[] path(GridPosition current, GridPosition end) {
+    public GridPosition[] getPath(GridPosition current, GridPosition end) {
         assert pathIsPossible(current, end);
 
         int[] curYX = ChessGameUtils_Ng.convertGridPositionTo2DYXArray(current);
@@ -58,8 +58,8 @@ public class Queen extends Piece {
 
         boolean isVerticalOrHorizontal = xDiff == 0 || yDiff == 0;
 
-        return isVerticalOrHorizontal ? new Rook(Player.BLACK).path(current, end) :
-               new Bishop(Player.BLACK).path(current, end);
+        return isVerticalOrHorizontal ? new Rook(Player.BLACK).getPath(current, end) :
+               new Bishop(Player.BLACK).getPath(current, end);
     }
 
     @Override

@@ -9,6 +9,8 @@ import org.junit.Test;
 import test.Points;
 import test.piece.PieceTest_7_BlackPawn;
 
+import java.util.Random;
+
 import static chess.GridPosition.*;
 import static org.junit.Assert.*;
 import static utils.PythonMethods.print;
@@ -17,6 +19,7 @@ import static utils.PythonMethods.print;
  @author Jeffrey Ng
  @created 2020-05-12 */
 public class ChessGameImplTest_1_MovementValidation extends PieceTest_7_BlackPawn {
+    public final boolean DO_PRINT = false;
     public final int ROW_COUNT = ChessGame.ROW_COUNT;
     public final int COL_COUNT = ChessGame.COLUMN_COUNT;
     public final Piece
@@ -29,7 +32,7 @@ public class ChessGameImplTest_1_MovementValidation extends PieceTest_7_BlackPaw
 
     public final char[] intToColTranslation = new char[] {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',};
     public final Piece[] startingRow8 = new Piece[] {
-            BLACK_ROOK, BLACK_KNIGHT, BLACK_BISHOP, BLACK_KING, BLACK_QUEEN, BLACK_BISHOP, BLACK_KNIGHT, BLACK_ROOK,
+            BLACK_ROOK, BLACK_KNIGHT, BLACK_BISHOP, BLACK_QUEEN, BLACK_KING, BLACK_BISHOP, BLACK_KNIGHT, BLACK_ROOK,
             };
     public final Piece[] startingRow7 = new Piece[] {
             BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN,
@@ -38,7 +41,7 @@ public class ChessGameImplTest_1_MovementValidation extends PieceTest_7_BlackPaw
             WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN,
             };
     public final Piece[] startingRow1 = new Piece[] {
-            WHITE_ROOK, WHITE_KNIGHT, WHITE_BISHOP, WHITE_KING, WHITE_QUEEN, WHITE_BISHOP, WHITE_KNIGHT, WHITE_ROOK,
+            WHITE_ROOK, WHITE_KNIGHT, WHITE_BISHOP, WHITE_QUEEN, WHITE_KING, WHITE_BISHOP, WHITE_KNIGHT, WHITE_ROOK,
             };
 
     protected ChessGame getChessGame() {
@@ -97,22 +100,9 @@ public class ChessGameImplTest_1_MovementValidation extends PieceTest_7_BlackPaw
     @Points(value = 5)
     @Test
     public void piecesThatCantMoveOnFirstMove() {
-        TEST_GOAL_MESSAGE = "Checking that White pieces are the only ones can move one turn one and but the ones that" +
-                            " are blocked can't";
-        final GridPosition[][] moves = new GridPosition[][] {
-                new GridPosition[] {
-                        A4, C3, F4, D2, E5, A6, H3, D1,
-                        },
-                new GridPosition[] {
-                        A3, B3, C4, D4, E4, F4, G3, H3,
-                        },
-                new GridPosition[] {
-                        A6, B6, C6, D6, E6, F6, G6, H6,
-                        },
-                new GridPosition[] {
-                        A5, C6, F5, D7, E4, A3, H6, D8,
-                        },
-                };
+        TEST_GOAL_MESSAGE = "Checking that White pieces are the only ones can move one turn one and that the only " +
+                            "ones that can move are the pawns or knights";
+
         final int[] necessaryRanks = new int[] {1, 2, 7, 8};
 
         ChessGame game = getChessGame();
@@ -120,17 +110,11 @@ public class ChessGameImplTest_1_MovementValidation extends PieceTest_7_BlackPaw
             for (int file = 0; file < COL_COUNT; file++) {
                 int rank = necessaryRanks[i];
                 GridPosition gp = getGPFromFileRank(file, rank);
-                Piece p = game.getPiece(gp);
-                GridPosition moveTo = moves[i][file];
-                boolean validMove = game.isValidMove(p, moveTo);
-                if (i == 3 || i == 2) {
-                    assertFalse(validMove);
+                boolean validMove = game.canMove(gp);
+                if (game.getPiece(gp).equals(WHITE_PAWN) || game.getPiece(gp).equals(WHITE_KNIGHT)) {
+                    assertTrue(validMove);
                 } else {
-                    if (i == 1 || (file == 1 || file == 6)) {
-                        assertTrue(validMove);
-                    } else {
-                        assertFalse(validMove);
-                    }
+                    assertFalse(validMove);
                 }
             }
         }
@@ -142,22 +126,30 @@ public class ChessGameImplTest_1_MovementValidation extends PieceTest_7_BlackPaw
         TEST_GOAL_MESSAGE = "Piece movement alternates between players and ALWAYS starts with White";
 
         ChessGame game = getChessGame();
-        print(game);
+        if (DO_PRINT) {
+            print(game);
+        }
 
         assertFalse(game.isValidMove(BLACK_PAWN, B5));
         assertTrue(game.isValidMove(WHITE_PAWN, A4));
         game.movePiece(WHITE_PAWN, A4);
-        print(game);
+        if (DO_PRINT) {
+            print(game);
+        }
 
         assertFalse(game.isValidMove(WHITE_PAWN, A5));
         assertTrue(game.isValidMove(BLACK_PAWN, B5));
         game.movePiece(BLACK_PAWN, B5);
-        print(game);
+        if (DO_PRINT) {
+            print(game);
+        }
 
         assertFalse(game.isValidMove(BLACK_ROOK, F6));
         assertTrue(game.isValidMove(WHITE_PAWN, B5));
         game.movePiece(WHITE_PAWN, B5);
-        print(game);
+        if (DO_PRINT) {
+            print(game);
+        }
     }
 
     @Points(value = 5)
@@ -177,34 +169,100 @@ public class ChessGameImplTest_1_MovementValidation extends PieceTest_7_BlackPaw
     }
 
     @Points(value = 5)
-    @Test
-    public void test_5() {
-        TEST_GOAL_MESSAGE = "";
+    @Test(expected = AssertionError.class)
+    public void ambiguousMoveJustGridPositionAttemptedFailure() {
+        TEST_GOAL_MESSAGE = "Moving declaring only GridPosition, attempted move is ambiguous so not piece can be " +
+                            "moved. Ambiguity caused by two pieces being able to be moved that the endpoint";
 
         ChessGame game = getChessGame();
 
-        game.movePiece(WHITE_PAWN, A4);
-        game.movePiece(BLACK_PAWN, A6);
+        game.movePiece(A4);
+        game.movePiece(A5);
 
-        game.movePiece(WHITE_PAWN, H4);
-        game.movePiece(BLACK_PAWN, B6);
+        game.movePiece(H4);
+        game.movePiece(H5);
 
-        game.movePiece(WHITE_ROOK, A3);
-        game.movePiece(BLACK_PAWN, C6);
-
-        game.movePiece(WHITE_ROOK, H3);
-        game.movePiece(BLACK_PAWN, D6);
-
-        assertTrue(game.isAmbiguousMove(WHITE_ROOK, E3));
+        assertTrue(game.isAmbiguousMove(H3));
+        game.movePiece(H3);
     }
 
     @Points(value = 5)
     @Test
-    public void test_6() {
-        TEST_GOAL_MESSAGE = "";
+    public void ambiguousMoveJustGridPositionResolution() {
+        TEST_GOAL_MESSAGE = "Moving declaring only GridPosition, ambiguous move resolved only needing to declare the " +
+                            "piece type.";
 
         ChessGame game = getChessGame();
 
+        game.movePiece(A4);
+        game.movePiece(A5);
+
+        game.movePiece(H4);
+        game.movePiece(H5);
+
+        game.movePiece(WHITE_ROOK, H3);
+    }
+
+    @Points(value = 5)
+    @Test(expected = AssertionError.class)
+    public void ambiguousMovePieceGridPositionAttemptedFailure() {
+        TEST_GOAL_MESSAGE = "Moving declaring Piece and GridPosition, attempted move is ambiguous so not piece can be" +
+                            " moved. Ambiguity caused by two pieces of the same type being able to be moved that the " +
+                            "endpoint";
+
+        ChessGame game = getChessGame();
+
+        game.movePiece(A4);
+        game.movePiece(A5);
+
+        game.movePiece(H4);
+        game.movePiece(H5);
+
+        game.movePiece(WHITE_ROOK, H3);
+        game.movePiece(G5);
+
+        assertTrue(game.isAmbiguousMove(A3));
+        assertTrue(game.isAmbiguousMove(WHITE_ROOK, A3));
+
+        game.movePiece(WHITE_ROOK, A3);
+    }
+
+    @Points(value = 5)
+    @Test
+    public void ambiguousMovePieceGridPositionResolution() {
+        TEST_GOAL_MESSAGE = "Moving declaring Piece GridPosition, ambiguous move resolved by declaring both the piece" +
+                            " type and the file that the desired piece is on";
+
+        ChessGame game = getChessGame();
+
+        game.movePiece(A4);
+        game.movePiece(A5);
+
+        game.movePiece(H4);
+        game.movePiece(H5);
+
+        game.movePiece(WHITE_ROOK, H3);
+        game.movePiece(G5);
+
+        // Potential Valid Moves
+        assertTrue(game.isValidMove(WHITE_ROOK, 'A', A3));
+        assertTrue(game.isValidMove(WHITE_ROOK, 'H', A3));
+        assertTrue(game.isValidMove(WHITE_KNIGHT, A3));
+        if (DO_PRINT) {
+            print(game);
+        }
+
+        int D3 = new Random().nextInt(3) + 1;
+        if (D3 == 0) {
+            game.movePiece(WHITE_ROOK, 'A', A3);
+        } else if (D3 == 2) {
+            game.movePiece(WHITE_ROOK, 'H', A3);
+        } else {
+            game.movePiece(WHITE_KNIGHT, A3);
+        }
+        if (DO_PRINT) {
+            print(game);
+        }
     }
 
     @Points(value = 5)

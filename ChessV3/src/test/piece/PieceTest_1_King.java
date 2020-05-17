@@ -137,7 +137,7 @@ public class PieceTest_1_King extends PieceTest_0_Environment {
         GridPosition curGP = extractGridPositionFromTestName_(testName);
         Piece p = getPieceFromTestName_(testName);
 
-        GridPosition[] actual = p.path(curGP, endGP);
+        GridPosition[] actual = p.getPath(curGP, endGP);
         GridPosition[] expected = new GridPosition[] {A1,};
 
         assertArrayEquals(expected, actual);
@@ -154,7 +154,7 @@ public class PieceTest_1_King extends PieceTest_0_Environment {
         GridPosition curGP = extractGridPositionFromTestName_(testName);
         Piece p = getPieceFromTestName_(testName);
 
-        GridPosition[] actual = p.path(curGP, endGP);
+        GridPosition[] actual = p.getPath(curGP, endGP);
         GridPosition[] expected = new GridPosition[] {B1,};
 
         assertArrayEquals(expected, actual);
@@ -171,6 +171,6 @@ public class PieceTest_1_King extends PieceTest_0_Environment {
         GridPosition curGP = extractGridPositionFromTestName_(testName);
         Piece p = getPieceFromTestName_(testName);
 
-        GridPosition[] actual = p.path(curGP, endGP);
+        GridPosition[] actual = p.getPath(curGP, endGP);
     }
 }

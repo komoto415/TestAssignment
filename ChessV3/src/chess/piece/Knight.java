@@ -23,7 +23,7 @@ public class Knight extends Piece {
 
     @Override
     public Move[] getMoveListFromCurrentPosition(GridPosition current) {
-        throw new RuntimeException("NOW IMPLEMENTED YET");
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
     }
 
     /* Notes
@@ -89,7 +89,7 @@ public class Knight extends Piece {
     }
 
     @Override
-    public GridPosition[] path(GridPosition current, GridPosition end) {
+    public GridPosition[] getPath(GridPosition current, GridPosition end) {
         assert pathIsPossible(current, end);
 
         int[] curYX = ChessGameUtils_Ng.convertGridPositionTo2DYXArray(current);

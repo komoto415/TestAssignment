@@ -102,7 +102,6 @@ public class ChessGameImpl_Skeleton implements ChessGame {
     @Override
     public List<Move> getMoveHistory() {
         throw new RuntimeException("NOT IMPLEMENTED YET!!");
-
     }
 
     @Override

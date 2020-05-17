@@ -119,7 +119,7 @@ public class PieceTest_7_BlackPawn extends PieceTest_6_WhitePawn {
         GridPosition curGP = extractGridPositionFromTestName_(testName);
         Piece p = getPieceFromTestName_(testName);
 
-        GridPosition[] actual = p.path(curGP, endGP);
+        GridPosition[] actual = p.getPath(curGP, endGP);
         GridPosition[] expected = new GridPosition[] {B2,};
 
         assertArrayEquals(expected, actual);
@@ -136,7 +136,7 @@ public class PieceTest_7_BlackPawn extends PieceTest_6_WhitePawn {
         GridPosition curGP = extractGridPositionFromTestName_(testName);
         Piece p = getPieceFromTestName_(testName);
 
-        GridPosition[] actual = p.path(curGP, endGP);
+        GridPosition[] actual = p.getPath(curGP, endGP);
         GridPosition[] expected = new GridPosition[] {B2, B3,};
 
         assertArrayEquals(expected, actual);
@@ -153,7 +153,7 @@ public class PieceTest_7_BlackPawn extends PieceTest_6_WhitePawn {
         GridPosition curGP = extractGridPositionFromTestName_(testName);
         Piece p = getPieceFromTestName_(testName);
 
-        GridPosition[] actual = p.path(curGP, endGP);
+        GridPosition[] actual = p.getPath(curGP, endGP);
         GridPosition[] expected = new GridPosition[] {C2,};
 
         assertArrayEquals(expected, actual);
@@ -170,7 +170,7 @@ public class PieceTest_7_BlackPawn extends PieceTest_6_WhitePawn {
         GridPosition curGP = extractGridPositionFromTestName_(testName);
         Piece p = getPieceFromTestName_(testName);
 
-        GridPosition[] actual = p.path(curGP, endGP);
+        GridPosition[] actual = p.getPath(curGP, endGP);
     }
 
     @Points(value = 5)
@@ -184,7 +184,7 @@ public class PieceTest_7_BlackPawn extends PieceTest_6_WhitePawn {
         GridPosition curGP = extractGridPositionFromTestName_(testName);
         Piece p = getPieceFromTestName_(testName);
 
-        GridPosition[] actual = p.path(curGP, endGP);
+        GridPosition[] actual = p.getPath(curGP, endGP);
     }
 
     @Points(value = 5)
@@ -198,6 +198,6 @@ public class PieceTest_7_BlackPawn extends PieceTest_6_WhitePawn {
         GridPosition curGP = extractGridPositionFromTestName_(testName);
         Piece p = getPieceFromTestName_(testName);
 
-        GridPosition[] actual = p.path(curGP, endGP);
+        GridPosition[] actual = p.getPath(curGP, endGP);
     }
 }

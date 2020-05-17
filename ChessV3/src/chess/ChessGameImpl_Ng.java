@@ -59,6 +59,11 @@ public class ChessGameImpl_Ng implements ChessGame {
     }
 
     @Override
+    public void movePiece(GridPosition end) {
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
+    }
+
+    @Override
     public void movePiece(Piece piece, GridPosition end) {
         throw new RuntimeException("NOT IMPLEMENTED YET!!");
     }
@@ -69,7 +74,22 @@ public class ChessGameImpl_Ng implements ChessGame {
     }
 
     @Override
+    public boolean isAmbiguousMove(GridPosition end) {
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
+    }
+
+    @Override
     public boolean isAmbiguousMove(Piece piece, GridPosition end) {
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
+    }
+
+    @Override
+    public boolean canMove(GridPosition gp) {
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
+    }
+
+    @Override
+    public boolean isValidMove(GridPosition end) {
         throw new RuntimeException("NOT IMPLEMENTED YET!!");
     }
 
@@ -91,7 +111,6 @@ public class ChessGameImpl_Ng implements ChessGame {
     @Override
     public List<Move> getMoveHistory() {
         throw new RuntimeException("NOT IMPLEMENTED YET!!");
-
     }
 
     @Override
