@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-    <component name="ProjectModuleManager">
-        <modules>
-            <module fileurl="file://$PROJECT_DIR$/ChessV3/ChessV3.iml" filepath="$PROJECT_DIR$/ChessV3/ChessV3.iml"/>
-            <module fileurl="file://$PROJECT_DIR$/ChessV3Skeletonised/ChessV3Skeletonised.iml"
-                    filepath="$PROJECT_DIR$/ChessV3Skeletonised/ChessV3Skeletonised.iml"/>
-            <module fileurl="file://$PROJECT_DIR$/ClockV1/ClockV1.iml" filepath="$PROJECT_DIR$/ClockV1/ClockV1.iml"/>
-            <module fileurl="file://$PROJECT_DIR$/PacManV2/PacManV2.iml"
-                    filepath="$PROJECT_DIR$/PacManV2/PacManV2.iml"/>
-            <module fileurl="file://$PROJECT_DIR$/TestAssignment.iml" filepath="$PROJECT_DIR$/TestAssignment.iml"/>
-        </modules>
-    </component>
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ChessV3/ChessV3.iml" filepath="$PROJECT_DIR$/ChessV3/ChessV3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ChessV3Skeletonised/ChessV3Skeletonised.iml" filepath="$PROJECT_DIR$/ChessV3Skeletonised/ChessV3Skeletonised.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PacManV2/PacManV2.iml" filepath="$PROJECT_DIR$/PacManV2/PacManV2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestAssignment.iml" filepath="$PROJECT_DIR$/TestAssignment.iml" />
+    </modules>
+  </component>
 </project>

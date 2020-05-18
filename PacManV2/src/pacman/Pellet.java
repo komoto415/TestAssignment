@@ -26,12 +26,12 @@ public enum Pellet {
         return p;
     }
 
-    public static char pelletAsChar(Pellet p) {
-        return p.ch;
+    public char getCharSymbol() {
+        return ch;
     }
 
-    public static int pelletValue(Pellet p) {
-        return p.point;
+    public int getPointValue() {
+        return point;
     }
 
 }

@@ -1,15 +1,47 @@
 package pacman;
 
 public abstract class PacManMaze {
-    public static final int DOT_VALUE = Pellet.pelletValue(Pellet.DOT);
     private final int[] mazeDimensions;
     private final int initialPelletCount;
-    protected char[][] maze;
+    protected String maze;
 
-    public PacManMaze(char[][] maze) {
+    public PacManMaze(String maze) {
         this.maze = maze;
-        mazeDimensions = new int[] {maze[0].length, maze.length,};
+        int mazeHeight = (int) maze.chars().filter(x -> x == '\n').count() + 1;
+        int mazeWidth = maze.length() / mazeHeight;
+        mazeDimensions = new int[] {mazeHeight, mazeWidth,};
         initialPelletCount = countPellets();
+    }
+
+    public int maxPotentialPoints() {
+        int dotCount = countPellets(Pellet.DOT);
+        int cherryCount = countPellets(Pellet.CHERRY);
+
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
+    }
+
+    private int countPellets() {
+        int count = 0;
+        for (int i = 0; i < maze.length(); i++) {
+            char ch_i = maze.charAt(i);
+            if (Pellet.translate(ch_i) != null) {
+                count += 1;
+            }
+        }
+
+        return count;
+    }
+
+    private int countPellets(Pellet pellet) {
+        int count = 0;
+        for (int i = 0; i < maze.length(); i++) {
+            char ch_i = maze.charAt(i);
+            if (Pellet.translate(ch_i).equals(pellet)) {
+                count += 1;
+            }
+        }
+
+        return count;
     }
 
     public int[] getMazeDimensions() {
@@ -20,38 +52,8 @@ public abstract class PacManMaze {
         return initialPelletCount;
     }
 
-    private int countPellets() {
-        return countPellets(null);
-    }
-
-    private int countPellets(Pellet pellet) {
-        int count = 0;
-        for (int row = 0; row < mazeDimensions[0]; row++) {
-            char[] currentRow = maze[row];
-            for (int col = 0; col < mazeDimensions[1]; col++) {
-                if (Pellet.translate(currentRow[col]) != pellet) {
-                    count += 1;
-                }
-            }
-        }
-
-        return count;
-    }
-
-    public int maxPotentialPoints() {
-        int dotCount = countPellets(Pellet.DOT);
-        int cherryCount = countPellets(Pellet.CHERRY);
-
-        throw new RuntimeException("NOT IMPLEMENTED YET!!");
-    }
-
+    @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (int row = 0; row < mazeDimensions[0]; row++) {
-            String rowAsString = new String(maze[row]);
-            sb.append(rowAsString).append('\n');
-        }
-
-        return sb.toString().trim();
+        return maze;
     }
 }

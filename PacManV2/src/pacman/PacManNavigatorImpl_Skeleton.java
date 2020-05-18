@@ -1,12 +1,11 @@
 package pacman;
 
 public class PacManNavigatorImpl_Skeleton extends PacManMaze implements PacManNavigator {
-    public static final char NAVIGATOR = 'O';
     private Direction[] tracker;
     private int points;
 
-    public PacManNavigatorImpl_Skeleton(char[][] board, int maxTurns) {
-        super(board);
+    public PacManNavigatorImpl_Skeleton(String maze, int maxTurns) {
+        super(maze);
         tracker = new Direction[maxTurns];
         points = 0;
     }

@@ -11,7 +11,7 @@ import static pacman.Direction.*;
  @author Jeffrey Ng
  @created 2020-05-13 */
 public class PacManNavigatorImplTest_2_COMPONENTS extends PacManNavigatorImplTest_1_ENVIRONMENT {
-    protected char[][] buildMazeSimpleNoCherries() {
+    protected String buildMaze() {
         String row01 = "|===================|";
         String row02 = "|*******************|";
         String row03 = "|*|*|==|*|=|*|==|*|*|";
@@ -26,21 +26,28 @@ public class PacManNavigatorImplTest_2_COMPONENTS extends PacManNavigatorImplTes
         String row12 = "|***|==|*****|==|***|";
         String row13 = "|===================|";
 
-        return new char[][] {
-                row01.toCharArray(), row02.toCharArray(), row03.toCharArray(), row04.toCharArray(), row05.toCharArray(),
-                row06.toCharArray(), row07.toCharArray(), row08.toCharArray(), row09.toCharArray(), row10.toCharArray(),
-                row11.toCharArray(), row12.toCharArray(), row13.toCharArray(),
+        String[] aux = new String[] {
+                row01, row02, row03, row04, row05,
+                row06, row07, row08, row09, row10,
+                row11, row12, row13,
                 };
+
+        StringBuilder sb = new StringBuilder();
+        for (String row : aux) {
+            sb.append(row).append('\n');
+        }
+
+        return sb.toString().trim();
     }
 
-    protected PacManNavigator getPacManSimpleNoCherries(int maxTurns) {
-        return new PacManNavigatorImpl_Skeleton(buildMazeSimpleNoCherries(), maxTurns);
+    protected PacManNavigator getPacMan(int maxTurns) {
+        return new PacManNavigatorImpl_Skeleton(buildMaze(), maxTurns);
     }
 
     @Test
     public void test1() {
         final int maxTurns = 10;
-        PacManNavigator navigator = getPacManSimpleNoCherries(maxTurns);
+        PacManNavigator navigator = getPacMan(maxTurns);
         System.out.println(navigator);
 
         assertTrue(true);

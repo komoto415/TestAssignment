@@ -7,7 +7,6 @@ Algorithms and Data Structures.
 - Chess
 - Pac Man
 - Airport Connections
-- Clock
 
 **Challenge Primary Goals**: 
 - Code Readability
@@ -80,7 +79,4 @@ WIP
 WIP
 
 ### Airport Connections
-WIP
-
-### Clock
 WIP
