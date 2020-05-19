@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ChessV3/ChessV3.iml" filepath="$PROJECT_DIR$/ChessV3/ChessV3.iml" />
       <module fileurl="file://$PROJECT_DIR$/ChessV3Skeletonised/ChessV3Skeletonised.iml" filepath="$PROJECT_DIR$/ChessV3Skeletonised/ChessV3Skeletonised.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EnigmaV1/EnigmaV1.iml" filepath="$PROJECT_DIR$/EnigmaV1/EnigmaV1.iml" />
       <module fileurl="file://$PROJECT_DIR$/PacManV2/PacManV2.iml" filepath="$PROJECT_DIR$/PacManV2/PacManV2.iml" />
       <module fileurl="file://$PROJECT_DIR$/TestAssignment.iml" filepath="$PROJECT_DIR$/TestAssignment.iml" />
     </modules>
