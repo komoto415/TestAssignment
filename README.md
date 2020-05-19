@@ -6,12 +6,13 @@ Algorithms and Data Structures.
 ## Concepts  
 - Chess
 - Pac Man
+- Enigma Machine
 - Airport Connections
 
 **Challenge Primary Goals**: 
-- Code Readability
-- Object Orientated Design
-- Multi-Class solutions
+- Enhancing Code Readability
+- Enforcing Object Orientated Design
+- Promotion of Multi-Class solutions
 
 **Component-Based Programming** Effective-Restructuring:
 Final challenge will be the experimental challenge
@@ -22,6 +23,7 @@ In addition, depending on the selected design, there maybe be a part three intro
 students will look at the AI behaviour application of their implementation.  
 i.e:  
 Chess -> Forward looking and game state evaluation  
+
 Pac Man -> Pathfinders and point accumulation optimisation
 
 ### Chess
@@ -76,6 +78,12 @@ Methods:
 WIP
 
 ### Pac Man
+WIP
+
+### Enigma Machine
+#### Part 1:
+
+#### Part 2:
 WIP
 
 ### Airport Connections

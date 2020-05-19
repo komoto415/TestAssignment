@@ -3,14 +3,14 @@ package engima;
 /**
  @author Jeffrey Ng
  @created 2020-05-19 */
-public abstract class Encoder {
+public abstract class Cipher {
     char[][] wiring;
 
-    public Encoder(char[][] wiring) {
+    public Cipher(char[][] wiring) {
         this.wiring = wiring;
     }
 
-    public abstract char encipher(char ch, boolean direction);
+    public abstract char encode(char ch, boolean direction);
 
     private static final int KEY_INDEX = 0;
     private static final int SHIFT_INDEX = 1;

@@ -12,7 +12,7 @@ public class Rotor extends Reflector {
     }
 
     @Override
-    public char encipher(char ch, boolean direction) {
+    public char encode(char ch, boolean direction) {
         throw new RuntimeException("NOT IMPLEMENTED YET!!");
     }
 
