@@ -16,4 +16,7 @@ public class Rotor extends Reflector {
         throw new RuntimeException("NOT IMPLEMENTED YET!!");
     }
 
+    public static void rotate() {
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
+    }
 }
