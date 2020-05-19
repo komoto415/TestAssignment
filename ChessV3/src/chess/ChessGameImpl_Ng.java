@@ -104,6 +104,11 @@ public class ChessGameImpl_Ng implements ChessGame {
     }
 
     @Override
+    public boolean isChecked() {
+        throw new RuntimeException("NOT IMPLEMENTED YET!!");
+    }
+
+    @Override
     public boolean isCheckmated() {
         throw new RuntimeException("NOT IMPLEMENTED YET!!");
     }

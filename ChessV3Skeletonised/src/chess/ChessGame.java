@@ -151,6 +151,15 @@ public interface ChessGame {
     /*  Postcondition(s):
                                             A
     */
+    public boolean isChecked();
+
+    /*
+        Precondition(s):
+                                            None
+    */
+    /*  Postcondition(s):
+                                            A
+    */
     public boolean isCheckmated();
 
     /*

@@ -1,6 +1,6 @@
 # Experimental Challenge
 **Project Objective**: Design a challenge such that it can be administered as a
-Component-Based Programming  challenge and then reduxed in 
+Component-Based Programming challenge and then reduxed in 
 Algorithms and Data Structures.  
 
 ## Concepts  
@@ -44,6 +44,7 @@ Piece Subclasses
     |-- Queen
     |-- Pawn
 
+Methods:
     public abstract int[][] getEndpointListFromCurrentPosition(GridPosition current);
     public abstract GridPosition[] getPath(GridPosition current, GridPosition end);
     public abstract boolean pathIsPossible(GridPosition current, GridPosition end);
@@ -54,7 +55,7 @@ Basic board interaction components and methods
 chess.ChessGameImpl_Skeleton;
 Methods:
     public Piece getPiece(GridPosition position);
-    public void movePiece(GridPosition end);
+    public void movePiece(Piece piece, char file, GridPosition end);
 ```
 
 #### Part 2: Move Validation and Ambiguity  
@@ -65,8 +66,8 @@ Board validation methods
 ```
 chess.ChessGameImpl_Skeleton;
 Methods: 
+    public void movePiece(GridPosition end);
     public void movePiece(Piece piece, GridPosition end);
-    public void movePiece(Piece piece, char file, GridPosition end);
     public boolean isAmbiguousMove(GridPosition end);
     public boolean isAmbiguousMove(Piece piece, GridPosition end);
     public boolean isValidMove(GridPosition end);
@@ -75,7 +76,14 @@ Methods:
 ```
 
 #### Part 3: AI, Game State Evaluation and Checkmates
-WIP
+And finally, the implementation must be able to evaluate the board start and declare 
+whether a player is checked or has been checkmated or not
+```
+chess.ChessGameImpl_Skeleton;
+Methods: 
+    public void isChecked();
+    public void isCheckmated();
+```
 
 ### Pac Man
 WIP
