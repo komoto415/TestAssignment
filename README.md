@@ -86,12 +86,14 @@ Methods:
 ```
 
 ### Pac Man
-WIP
-
-### Enigma Machine
-#### Part 1:
+#### Part 1: Pac Man Maze-Traversal 
+All we want to do right now is to allow our navigator to move through a maze when given
+a direction to go. With this, the student should also program how to accumulate points.
 
 #### Part 2:
+
+
+### Enigma Machine
 WIP
 
 ### Airport Connections
